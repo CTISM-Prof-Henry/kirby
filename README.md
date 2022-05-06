@@ -1,7 +1,5 @@
 # Kirby
 
-<img src="images/background.jpg" style="clip-path:inset(210px 100px 0px 0px);">
-
 Este repositório visa ensinar a programação de jogos utilizando a biblioteca [Pygame](https://www.pygame.org/news) e o 
 jogo [Kirby's Adventure](https://en.wikipedia.org/wiki/Kirby%27s_Adventure), para NES.
 
