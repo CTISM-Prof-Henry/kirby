@@ -76,7 +76,7 @@ class Entity(object):
         :return: True se ambas entidades colidem, False se não
         """
 
-        # TODO checa se saiu da tela
+        # TODO fazer verificação para ver se saiu da tela
         return self.collision_box.collides_with(other.collision_box)
 
     def render(self, screen):

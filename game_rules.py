@@ -1,3 +1,7 @@
+"""
+Arquivo para colocar as constantes do jogo
+"""
+
 DIR_UP = 0
 DIR_RIGHT = 1
 DIR_DOWN = 2

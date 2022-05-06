@@ -1,9 +1,7 @@
 import pygame
-import numpy as np
 from pygame.locals import *
 
-# direções do aspirador
-from entities import Player, Entity
+from entities import Player
 
 from game_rules import *
 from screen import Screen
@@ -13,8 +11,8 @@ def check_events(my_direction: int):
     """
     Verifica eventos do jogo (incluindo se teclas foram pressionadas)
 
-    :param my_direction: A direção do aspirador
-    :return: A nova direção do aspirador, atualizada com base nas teclas pressionadas neste instante
+    :param my_direction: A direção do jogador
+    :return: A nova direção do jogador, atualizada com base nas teclas pressionadas neste instante
     """
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -47,13 +45,12 @@ def check_collisions(entities, score: int, game_over: bool, victory: bool):
 
 def main():
     pygame.init()
-    pygame.display.set_caption('Pitfall')
+    pygame.display.set_caption('Kirby')
     clock = pygame.time.Clock()
     screen = Screen(screen_width, screen_height, grid_size)
 
     player = Player(0, 0, collision_box=None)
     my_direction = None
-    # dirts = generate_random_positions(screen_width, screen_height, how_dirty=n_dirt)
 
     entities = [player]
 
@@ -64,7 +61,6 @@ def main():
         clock.tick(10)
         my_direction = check_events(my_direction)
 
-        # player, dirts, score, game_over, victory = check_collisions(player, dirts, score, game_over, victory)
         if victory:
             break
 
