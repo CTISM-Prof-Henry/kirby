@@ -8,11 +8,11 @@ class SpriteSheet:
     """Extraído de https://ehmatthes.github.io/pcc_2e/beyond_pcc/pygame_sprite_sheets/#a-simple-sprite-sheet"""
 
     def __init__(self, filename):
-        """Load the sheet."""
+        """Carrega a spritesheet"""
         try:
             self.sheet = pygame.image.load(filename).convert()
         except pygame.error as e:
-            print(f"Unable to load spritesheet image: {filename}")
+            print(f"Não foi possível carregar a spritesheet: {filename}")
             raise SystemExit(e)
 
     def image_at(self, rectangle: tuple, colorkey=None):
@@ -33,13 +33,13 @@ class SpriteSheet:
             image.set_colorkey(colorkey, pygame.RLEACCEL)
         return image
 
-    def images_at(self, rects, colorkey = None):
-        """Load a whole bunch of images and return them as a list."""
+    def images_at(self, rects: list, colorkey: int = None):
+        """Carrega vários retângulos e os retorna como uma lista."""
         return [self.image_at(rect, colorkey) for rect in rects]
 
-    def load_strip(self, rect, image_count, colorkey = None):
-        """Load a whole strip of images, and return them as a list."""
-        tups = [(rect[0]+rect[2]*x, rect[1], rect[2], rect[3])
+    def load_strip(self, rect, image_count, colorkey: int = None):
+        """Carrega uma linha de imagens, e as retorna como uma lista."""
+        tups = [(rect[0] + rect[2] * x, rect[1], rect[2], rect[3])
                 for x in range(image_count)]
         return self.images_at(tups, colorkey)
 
@@ -53,9 +53,9 @@ class CollisionBox(object):
 
     def collides_with(self, other):
         if (self.x < other.x + other.width) and \
-           (self.x + self.width > other.x) and \
-           (self.y < other.y + other.height) and \
-           (self.y + self.height > other.y):
+                (self.x + self.width > other.x) and \
+                (self.y < other.y + other.height) and \
+                (self.y + self.height > other.y):
             return True
         return False
 
@@ -99,6 +99,7 @@ class Player(Entity):
         self.neutral_state_image = states.image_at((6, 24, 15, 15))
         self.blinking_state_image = states.image_at((26, 24, 15, 15))
         self.image = self.neutral_state_image
+        self.rect = self.image.get_rect()
 
     def move(self, my_direction: int):
         """
@@ -129,9 +130,9 @@ class Player(Entity):
         self.y += y_increment
 
     def render(self, screen: SurfaceType):
+        """
+        Mostra o personagem na tela.
+        """
         self.rect = self.image.get_rect()
         self.rect.topleft = self.x, self.y
         screen.blit(self.image, self.rect)
-
-
-

@@ -1,7 +1,11 @@
 # Kirby
 
+<img src="images/background.jpg" style="clip-path:inset(210px 100px 0px 0px);">
+
 Este repositório visa ensinar a programação de jogos utilizando a biblioteca [Pygame](https://www.pygame.org/news) e o 
 jogo [Kirby's Adventure](https://en.wikipedia.org/wiki/Kirby%27s_Adventure), para NES.
+
+<img src="images/walking.gif" width="100px">
 
 ## Sumário
 
@@ -75,3 +79,5 @@ Confira os tutoriais do pythonEssentials, se for a
 
 * [Página inicial da biblioteca pygame](https://www.pygame.org/news)
 * [Documentação pygame](https://www.pygame.org/docs/)
+* [Sprites do Jogo Kirby's Adventure](https://spritedatabase.net/game/228)
+* [Gameplay de Kirby's Adventure](https://www.youtube.com/watch?v=LyU-mKTAauk)
